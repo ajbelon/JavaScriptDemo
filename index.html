@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            GIT418: Final Project
+            Author: Autumn Belon
+            Date: April 26, 2021
+        -->
+        <title>Demo-Information Security</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="his tutorial will walk you through what information can be accessed as well as how to display that information. Additionally, we'll discover some basics about what information modern web browsers are able to obtain about your computer, it's OS, what browser you use, your location, and more.">
+        <link rel="shortcut icon" href="logo.JPG" />
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"> 
+        <script src="modernizr.min.js"></script>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night-blue.min.css">
+	   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		
+    </head>
+    <body>
+        <section id="menu">
+        <img src="logo.JPG" alt="JavaScript Logo">
+        <ul>
+            <li class="activepage"><a href="index.html"> &#60;Information Security&#62; </a></li>
+            <li><a href="jquery.html"> &#60;jQuery&#62; </a></li>
+        </ul>
+            </section>
+        <h1>Information Security</h1>
+        <h2>What information can be accessed by modern web browsers?</h2>
+        <p> This tutorial will walk you through what information can be accessed as well as how to display that information.  Additionally, we'll discover some basics about what information modern web browsers are able to obtain about <strong>your computer, it's OS, what browser you use, your location, and more</strong>.</p>
+        <br><hr><br>
+        <h2>Accessing the information</h2>
+        <p>First we need to know what information is accessible.  Refer to the list below for a sampling of what data is accessible by web browsers.  This is not an exhaustive list: </p>
+        <dl>
+            <dt>Property:<strong>appName</strong></dt>
+            <dd>Name of the web browser displaying the page</dd>
+            <dt>Property:<strong>appVersion</strong></dt>
+            <dd>Version of the web browser displaying the page</dd>
+            <dt>Property:<strong>geolocation</strong></dt>
+            <dd>API for accessing the user’s current location and user permission settings denying or allowing access to that information</dd>
+            <dt>Property:<strong>onLine</strong></dt>
+            <dd>Whether the browser currently has a network connection</dd>
+            <dt>Property:<strong>platform</strong></dt>
+            <dd>Operating system in use on the client computer</dd>
+            <dt>Property:<strong>userAgent</strong></dt>
+            <dd>String stored in the HTTP user-agent request header, which contains information about the browser, the platform name, and compatibility</dd>
+        </dl>
+        <p>*source: <em>JavaScript: The Web Warrior Series: By Sasha Vodnik and Don Gosselin</em></p>
+        <br><hr><br>
+        <h2>Writing our script</h2>
+        <p>Using the list above, let's begin wriring our script to display the properties listed.  We're going to start with <strong>appVersion</strong>.
+        We're going to use the <strong>Navigator Object</strong> to gain and display information from our web browser. <br><br>
+            We will use <strong>getElementsByTagName</strong> to display our content.  You must format your html with  "p" tags in order to accomplish this.  This page has six "p" tags, which is why the number 5 follows the command "document.getElementByTagName("p")".  Remember, in JavaScript, numbering begins at zero, not one.  So, we want to display our data on the sixth "p" tag, which means we'll use the number [5].  The number five represents the sixth "p" tag in our html document.<br><br>See the code below:</p>
+	   <pre>
+			<code class="html">
+            document.getElementsByTagName(&quot;p&quot;)[5].innerHTML = 
+                        &quot;&lt;strong&gt;Web browser version: &lt;/strong&gt;&quot; + navigator.appVersion;
+			</code>
+	   </pre>
+        <p>Entering the above code will display the following information:</p>
+        <p></p>
+        <script>
+		document.getElementsByTagName("p")[5].innerHTML = 
+                        "<strong>Web browser version: </strong>" + navigator.appVersion;
+        </script>
+        <hr>
+	   <p>To view the other items in the list, simply replace what we referenced here, "appVersion", with the other items in the list.  For example, the code below will display the operating system, or "platform", installed on your computer:</p>
+       <pre>
+            <code class="html">
+        document.getElementsByTagName(&quot;p&quot;)[8].innerHTML = 
+                        &quot;&lt;strong&gt;Operating platform: &lt;/strong&gt;&quot; + navigator.platform;
+            </code>
+       </pre> 
+        <p>The results are displayed below:</p>
+        <p></p>
+        <script>
+        document.getElementsByTagName("p")[8].innerHTML = 
+                        "<strong>Operating platform: </strong>" + navigator.platform;
+        </script>
+        <br><hr><br>
+        <p>You can also access a simplified demo of just the JavaScript code wiuth just two "p" tags in the html on <a href="https://jsfiddle.net/veo96w5m/"> jsfiddle</a>.</p>
+        <p>You can continue in this manner to display all the information referenced.  GeoLocation can be used in a variety of ways to display information.  For more info, visit the <a href="https://www.w3schools.com/html/html5_geolocation.asp">w3c School's HTML Geolocation API information page.</a></p>
+        <br><hr><br>
+        <h2>Web security and what information browsers can access isn't something most people might think about when visiting websites. Below you will find links to articles that discuss this in further detail.</h2>
+        <ul>
+            <li>This article from <a href="https://www.techrepublic.com/article/5-common-browser-security-threats-and-how-to-handle-them/"> Tech Republic </a>explains "..the browser also has the potential to betray the user through the very same options which are intended to make life easier since it serves as a ripe target for the theft of confidential data because it holds so many proverbial eggs in its basket."
+            </li>
+            <li>This article from <a href="https://safecomputing.umich.edu/protect-yourself/be-safe-online/web-browser-security-and-privacy">The University of Michigan</a> gives some simple recommendations for how to secure your web browser for security and privacy.</li>
+            <li><a href="https://www.techlicious.com/tip/how-browsers-leak-personal-information/">Tech Licious</a> gives four simple tips for protecting personal information.</li>
+            <li><a href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:online-data-security/xcae6f4a7ff015e7d:user-data-tracking/a/browsing-history">The Khan Academy</a> gives a detailed explanation about what information can be access, tracked, and shared among browsers as well as how this information sharing takes place.</li>
+        </ul>
+        <footer><p><strong>Web Design by <a href="https://www.autumnbelon.com/" target="_blank">Autumn Belon</a></strong><br><br><em>**This site is for educational purposes only**</em></p></footer>
+    </body>
+</html>
