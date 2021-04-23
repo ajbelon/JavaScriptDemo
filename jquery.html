@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            GIT418: Final Project
+            Author: Autumn Belon
+            Date: April 26, 2021
+        -->
+        <title>Demo-jQuery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="his tutorial will walk you through what information can be accessed as well as how to display that information. Additionally, we'll discover some basics about what information modern web browsers are able to obtain about your computer, it's OS, what browser you use, your location, and more.">
+        <link rel="shortcut icon" href="logo.JPG" />
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"> 
+        <script src="modernizr.min.js"></script>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night-blue.min.css">
+	   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+        <section id="menu">
+        <img src="logo.JPG" alt="JavaScript Logo">
+        <ul>
+            <li><a href="index.html">&#60;Information Security&#62;</a></li>
+            <li class="activepage"><a href="jquery.html">&#60;jQuery&#62;</a></li>
+        </ul>
+            </section>
+        <h1>jQuery</h1>
+        <h2>What is jQuery?</h2>
+        <p>According to <a href="https://jquery.com" target="_blank">jquery.com</a>, jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</p>
+        <br><hr><br>
+        <h2>How do we use jQuery?</h2>
+        <p>This tutorial will walk you through the basics of how to execute jQuery commands, where to access jQuery libraries, and will demonstrate how to utilize jQuery on your site. </p>
+        <br><hr><br>
+        <h2>Where do we access jQuery libraries?</h2>
+        <p>First, in order to complete this demonstration, you will need an HTML document with a simple h1 tag.  Using your preferred editor, create an HTML document with an h1 tag.<br><br>In order to utlize jQuery, you need to locate a jQuery CDN (content delivery network) and add the link location into your HTML document in a script tag.  Let's start with locating our jQuery CDN. First, navigate to the <strong><a href="https://code.jquery.com/" target="_blank">jQuery CDN.</a></strong></p>
+        <img src="jquerycdn.JPG" alt="jQuery CDN">
+        <p>Once there, you'll be presented with several options.  Best practice is to use the most up to date release of jQuery, which in this case is 3.6.0.  As you can see from the screenshot, there are several options including an uncompressed, minified, slim, and slim minified.  Minification is the process of minimizing code and markup in your web pages and script files. It's one of the main methods used to reduce load times and bandwidth usage on websites, so best practice is to use a minified version.  Let's select jQuery Core 3.6.0 minified by right clicking on the word "minified" and selecting <strong>Copy Link Address.</strong></p>
+        <img src="cdnhighlighted.JPG" alt="jQuery CDN Highlighted">
+        <p>Return to your HTML document and insert the following script in the <strong>head</strong> of your HTML document.</p>
+	   <pre>
+			<code class="html">
+            &#60;script src=''&#62;&#60;/script'&#62;;
+			</code>
+	   </pre>
+        <p>Paste the web address you copied from the jQuery CDN between the single quotation marks and then <strong> &#128190; Save</strong> your document.  Your document should now look like this: </p>
+        <pre>
+			<code class="html">
+            &#60;!DOCTYPE html&#62;
+            &#60;html lang="en"&#62;
+            &#60;head&#62;
+            &#60;script src='https://code.jquery.com/jquery-3.6.0.min.js'&#62;&#60;/script'&#62;;
+            &#60;/head&#62;
+            &#60;body&#62;
+            &#60;h1&#62;jQuery is fun!&#60;/h1&#62;
+            &#60;/body&#62;
+            &#60;/html&#62;
+			</code>
+	   </pre>
+        <p>A more visual represntation of this code demonstration can be seen on <a href="https://jsfiddle.net/7xmw4ozn/" target="_blank">JSfiddle</a>.  Let's make sure everything is working.  Navigate to your webpage and open your browser's inspector by right clicking in the document window and selecting "Inspect" or "Inspect Element".  Navigate to the <strong>Console</strong> and type the dollar sign and press enter.  Depending on which browser's tools you're using, you will see a return of the fuction definition as shown on the table below:</p>
+        <dl>
+            <dt><strong>Firefox:</strong></dt>
+            <dd>function n()</dd>
+            <dt><strong>Chrome:</strong></dt>
+            <dd>f (a,b){return new n.fn.init(a,b)}</dd>
+        </dl>
+        <br><hr><br>
+        <h2>How do we use jQuery?</h2>
+        <p>Now, let's see what we can do with jQuery.  This simple demonstration will show you how to add some animation to your website.  For our code demonstration, we have a simple html document with an h1 tag. We will <strong>select</strong> our h1 tag using proper jQuery syntax.  <strong>Selecting</strong> in jQuery is similar to in CSS except that with jQuery, we use a <strong><em>$</em></strong> at the beginning of our selector.  The proper syntax for <strong>selecting</strong> our h1 tag is:</p>
+        <pre>
+			<code class="html">
+            $("h1");
+			</code>
+	   </pre>
+        <p>Now that we have our h1 tag selected, lets do something with it.  Let's use it to animate our h1 tag.  First, let's go over the proper syntax for jQuery animations, which is as follows:<br><br><strong>$(<em>selector</em>).animate({<em>params},speed,callback;</em></strong><br><br>To understand this better, let's set animation up to utilize our selector using the following code:</p>
+        <pre>
+			<code class="html">
+            &#60;script&#62;
+                $(document).ready(function() {});
+            &#60;/script&#62;;
+			</code>
+	   </pre>
+        <p>Let's talk about what this code means.  We open our script tag for a jQuery function, much like we do for a regular JavaScript function with the &#60;Script&#62; tag.  The next line in our code calls the document with the "$(document)" text, then tells the document that upon page load, execute the following function.  The syntax for this is <em>".ready(function)({})"</em>.  We then split our function open: </p>
+        <pre>
+			<code class="html">
+            &#60;script&#62;
+                $(document).ready(function() {
+                    
+                });
+            &#60;/script&#62;;
+			</code>
+	   </pre>
+        <p><strong>Select</strong> our h1 tag, and tell it what we want it to do:</p>
+        <pre>
+			<code class="html">
+            &#60;script&#62;
+                $(document).ready(function() {
+                    $("h1").hide().slideDown(800)
+                });
+            &#60;/script&#62;;
+			</code>
+	   </pre>
+        <p>As you can see, we first use the $ to begin our command, then the parenteses and quotation marks to call our selector, <em>h1.</em>  The next step is to declare what animation we want to use, <em>.hide()</em>, set the paramaters, <em>.slidedown</em>, and specify a speed, <em>(800)</em>.  Speed is specified in milliseconds, so this animation will take 800 miliseconds to complete.<br><br>&#128190; Save your HTML document and reload your webpage in your browser to see the animation in action, or click the <a href="demo.html" target="_blank">Demonstration</a>.</p>
+        <p>As mentioned earlier, a more visual demonstration of this code can be accessed on <a href="https://jsfiddle.net/7xmw4ozn/" target="_blank">JSfiddle</a>.</p>
+        <br><hr><br>
+        <h2>Where can I learn more?</h2>
+        <p>There is much more that can jQuery can do.  The <a href="https://www.w3schools.com/jquery/default.asp" target="_blank">W3C schools</a> also provides a tutorial on their website.<br><br>For a more in depth explanation of what jQuery can do, the <a href="https://api.jquery.com/" target="_blank">jQuery API Documentation</a> page has lots of useful information and in depth explanations.</p>
+        <br><hr><br>
+        <footer><p><strong>Web Design by <a href="https://www.autumnbelon.com/" target="_blank">Autumn Belon</a></strong><br><br><em>**This site is for educational purposes only**</em></p></footer>
+    </body>
+</html>
