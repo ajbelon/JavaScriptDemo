@@ -360,9 +360,13 @@ h1 {
     background-color: #10548b; 
     color: white;
     padding: 15px;
+    width: 25%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: yellow;
 }
 h2 {
-    color: #10548b; 
+    color: #10548b;
 }
 h3 { 
     color: #2b72a2; 
@@ -386,9 +390,9 @@ dd, li {
     color: white;  
 }
 #menu img {
-    width: 150px; 
+    width: 75px; 
     float: left;
-    box-shadow: 2px 2px 2px 2px grey
+    box-shadow: 2px 2px 2px 1px yellow;
 }
 #menu ul {
     margin: 25px;
@@ -401,13 +405,10 @@ dd, li {
     text-align: center;
 }
 #menu li {
-    padding: 30px 15px 0 15px;
+    padding: 10px 30px 0 30px;
 }
 .activepage a{
-    border: 6px;
-    border-style:outset;
-    border-radius: 10px;
-    border-color: yellow;
+    text-shadow: 1px 1px 15px yellow;
     pointer-events: none;
 }
 img {
